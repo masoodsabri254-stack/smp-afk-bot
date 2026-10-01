@@ -15,7 +15,7 @@ function createBot() {
     host: 'lomjanksmp.play.hosting', 
     port: 25565,                         
     username: 'SMP_Gatekeeper',          
-    version: '1.21.1' // 🛡️ SPOOF PROTOCOL TO BYPASS CRASH
+    version: '26.3' 
   });
 
   // Handle EasyAuth login/registration on spawn
