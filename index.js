@@ -2,9 +2,9 @@ const mineflayer = require('mineflayer');
 const http = require('http');
 
 // Choose a secure password for your bot's EasyAuth account
-const BOT_PASSWORD = "YourSecurePassword123!"; // 🛑 CHANGE THIS TO ANY PASSWORD YOU WANT
+const BOT_PASSWORD = "botlomjank33"; 
 
-// Create a fake web server for Render
+// Create a fake web server for Render (Required to keep the free service alive)
 http.createServer((req, res) => {
   res.write("Bot is alive!");
   res.end();
@@ -12,16 +12,17 @@ http.createServer((req, res) => {
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'yourservername.play.hosting', // 🛑 REPLACE WITH YOUR SERVER IP
-    port: 25565,                         // 🛑 REPLACE WITH YOUR PORT
-    username: 'SMP_Gatekeeper',          // Name of the bot
-    version: '1.20.4'                    // Match your exact server version
+    host: 'lomjanksmp.play.hosting', 
+    port: 25565,                         
+    username: 'SMP_Gatekeeper',          
+    version: '26.3' // Natively supported via the master branch dependency
   });
 
   // Handle EasyAuth login/registration on spawn
   bot.on('spawn', () => {
     console.log('Bot spawned. Attempting EasyAuth verification...');
     
+    // Wait 2 seconds after spawning to send the commands safely
     setTimeout(() => {
       bot.chat(`/register ${BOT_PASSWORD} ${BOT_PASSWORD}`);
       bot.chat(`/login ${BOT_PASSWORD}`);
@@ -47,4 +48,3 @@ function createBot() {
 }
 
 createBot();
-
